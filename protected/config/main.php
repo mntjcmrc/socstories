@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'SocStories',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -16,6 +16,8 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'application.modules.user.models.*',
+        'application.modules.user.components.*',
 	),
 
 	'modules'=>array(
@@ -28,11 +30,25 @@ return array(
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
 		*/
+		'user'=>array(
+			'hash' => 'sha512',
+			'sendActivationMail' => false,
+			'loginNotActiv' => false,
+			'activeAfterRegister' => false,
+			'autoLogin' => true,
+			'registrationUrl' => array('/user/registration'),
+			'recoveryUrl' => array('/user/recovery'),
+			'loginUrl' => array('/user/login'),
+			'returnUrl' => array('/user/profile'),
+			'returnLogoutUrl' => array('/user/login'),
+		),
 	),
 
 	// application components
 	'components'=>array(
 		'user'=>array(
+			'class'=> 'WebUser',
+			'loginUrl' => array('/user/login'),
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
@@ -48,7 +64,8 @@ return array(
 		),
 		*/
 		'db'=>array(
-			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
+			'tablePrefix' => 'soc_',
+			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/socstories.sqlite',
 		),
 		// uncomment the following to use a MySQL database
 		/*

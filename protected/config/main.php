@@ -17,7 +17,7 @@ return array(
 		'application.models.*',
 		'application.components.*',
 		'application.modules.user.models.*',
-        'application.modules.user.components.*',
+		'application.modules.user.components.*',
 	),
 
 	'modules'=>array(
@@ -25,9 +25,9 @@ return array(
 		/*
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'Enter Your Password Here',
+			'password'=>'password',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1'),
+			'ipFilters'=>array('127.0.0.1'),
 		),
 		*/
 		'user'=>array(
@@ -53,16 +53,20 @@ return array(
 			'allowAutoLogin'=>true,
 		),
 		// uncomment the following to enable URLs in path-format
-		/*
+		
 		'urlManager'=>array(
 			'urlFormat'=>'path',
+			'showScriptName' => false,
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+				'gii'=>'gii',
+				'gii/<controller:\w+>'=>'gii/<controller>',
+				'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',
 			),
 		),
-		*/
+		
 		'db'=>array(
 			'tablePrefix' => 'soc_',
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/socstories.sqlite',
@@ -104,4 +108,5 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
 	),
+	'theme'=>'blackboot',
 );

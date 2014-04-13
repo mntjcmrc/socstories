@@ -21,7 +21,7 @@
 	<?php if(Yii::app()->user->isAdmin()){ ?>
 	<div class="row">
 		<?php echo $form->labelEx($model,'author'); ?>
-		<?php echo $form->dropDownList($model, 'id', CHtml::listData(User::model()->findAll(), 'id', 'username')); ?>
+		<?php echo $form->dropDownList($model, 'author', CHtml::listData(User::model()->findAll(), 'id', 'username')); ?>
 		<?php echo $form->error($model,'author'); ?>
 	</div>
 	<?php }?>

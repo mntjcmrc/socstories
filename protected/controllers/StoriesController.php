@@ -70,7 +70,10 @@ class StoriesController extends Controller
 		if(isset($_POST['Stories']))
 		{
 			$model->attributes=$_POST['Stories'];
-			$model->setAttribute('author', Yii::app()->user->getId());
+			// Only admins can create stories with a different author to themselves
+			if(!Yii::app()->user->isAdmin()){
+				$model->setAttribute('author', Yii::app()->user->getId());
+			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -95,6 +98,10 @@ class StoriesController extends Controller
 		if(isset($_POST['Stories']))
 		{
 			$model->attributes=$_POST['Stories'];
+			// Only admins can update stories with a different author to themselves
+			if(!Yii::app()->user->isAdmin()){
+				$model->setAttribute('author', Yii::app()->user->getId());
+			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

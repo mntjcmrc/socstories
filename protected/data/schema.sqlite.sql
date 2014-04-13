@@ -18,8 +18,10 @@ CREATE TABLE soc_profiles (
 	lastname varchar(50) NOT NULL DEFAULT '',
 	firstname varchar(50) NOT NULL DEFAULT ''
 );
+
+INSERT INTO soc_profiles (user_id, lastname, firstname) VALUES (1, 'Admin', 'Administrator');
 -- Profiles fields
-CREATE TABLE rec_profiles_fields (
+CREATE TABLE soc_profiles_fields (
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	varname varchar(50) NOT NULL,
 	title varchar(255) NOT NULL,
@@ -60,8 +62,8 @@ CREATE TABLE soc_comments(
 CREATE TABLE soc_messages(
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	author INTEGER NOT NULL,
-	destinatary INTEGER NOT NULL,
+	recipient INTEGER NOT NULL,
 	text TEXT NOT NULL,
 	FOREIGN KEY(author) REFERENCES soc_users(id),
-	FOREIGN KEY(destinatary) REFERENCES soc_users(id),
+	FOREIGN KEY(recipient) REFERENCES soc_users(id)
 );

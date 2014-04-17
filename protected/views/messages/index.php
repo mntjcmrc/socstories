@@ -8,8 +8,14 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Create Messages', 'url'=>array('create')),
-	array('label'=>'Manage Messages', 'url'=>array('admin')),
+	//array('label'=>'Manage Messages', 'url'=>array('admin')),
 );
+$menu_admin = array(
+	array('label'=>'Manage Stories', 'url'=>array('admin')),
+);
+if(Yii::app()->user->isAdmin()){
+	$this->menu = array_merge($this->menu, $menu_admin);
+}
 ?>
 
 <h1>Messages</h1>

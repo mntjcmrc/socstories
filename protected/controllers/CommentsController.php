@@ -70,6 +70,10 @@ class CommentsController extends Controller
 		if(isset($_POST['Comments']))
 		{
 			$model->attributes=$_POST['Comments'];
+			// Only admins can create comments with a different author to themselves
+			if(!Yii::app()->user->isAdmin()){
+				$model->setAttribute('author', Yii::app()->user->getId());
+			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -94,6 +98,10 @@ class CommentsController extends Controller
 		if(isset($_POST['Comments']))
 		{
 			$model->attributes=$_POST['Comments'];
+			// Only admins can update comments with a different author to themselves
+			if(!Yii::app()->user->isAdmin()){
+				$model->setAttribute('author', Yii::app()->user->getId());
+			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

@@ -60,6 +60,7 @@ class Stories extends CActiveRecord
 			'id' => 'ID',
 			'author' => 'Author',
 			'text' => 'Text',
+			'comments' => 'Comments',
 		);
 	}
 

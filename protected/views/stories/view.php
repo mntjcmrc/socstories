@@ -28,8 +28,25 @@ if(Yii::app()->user->isAdmin()){
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'id',
-		'author',
+		'author0.username',
 		'text',
 	),
 )); ?>
+<h2>Comments</h2>
+<?php
+foreach (array_reverse($model->comments) as $comment){
+	$this->widget('zii.widgets.CDetailView', array(
+		'data'=>$comment,
+		'attributes'=>array(
+			'author0.username',
+			'text',
+		),
+	));
+	?>
+	<br />
+	<?php
+}
+$this->widget('CommentsWidget', array(
+	'storyID' => $model->id,
+));
+?>

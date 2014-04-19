@@ -91,16 +91,21 @@ form div {
 display:block;
 }
 
-h1 {
+h1, h2 {
   display: block;
   width: 100%;
   padding: 0;
   margin-bottom: 27px;
-  font-size: 19.5px;
   line-height: 36px;
   color: #333333;
   border: 0;
   border-bottom: 1px solid #e5e5e5;
+}
+h1{
+  font-size: 19.5px;
+}
+h2{
+  font-size: 16px;
 }
 legend small {
   font-size: 13.5px;
@@ -590,4 +595,8 @@ p.hint { float:left; display:block;}
 
 #mainmenu ul li ul li a:hover { 
 	color: rgb(255, 255, 255); 
+}
+
+#comments-form > div.row > textarea#Comments_text {
+	margin-left: 16px;
 }

@@ -551,51 +551,7 @@ p.hint { float:left; display:block;}
 
 .col-md-3 { float: left; }
 
-/* Added to dropdown menu  */
-
-#mainmenu {
-	height: 28px;
-}
-
-#mainmenu > ul >li {
-	overflow: visible;
-	display: block;
-	float:left;
-}
-
-#mainmenu > ul > li ul { 
-	display: none;
-	position: absolute;
-	background: #FFF; 
-	padding: 0;
-	height: auto; 
-}
-
-#mainmenu > ul > li > ul { 
-	list-style: none;
-}
-
-#mainmenu > ul > li > ul li ul { 
-	margin-top: -20px;
-	left: 99%;
-	width: 100%;
-}
-
-#mainmenu ul li:hover > ul { 
-	display: block;
-}
-
-#mainmenu ul li ul li a{
-	color: rgb(153, 153, 153);
-	background-color: rgb(21, 21, 21);
-	padding: 4px 14px; 
-	text-decoration: none;
-	display: block;
-}
-
-#mainmenu ul li ul li a:hover { 
-	color: rgb(255, 255, 255); 
-}
+/*------------------------*/
 
 #comments-form > div.row > textarea#Comments_text {
 	margin-left: 16px;

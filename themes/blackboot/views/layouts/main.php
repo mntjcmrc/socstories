@@ -46,7 +46,7 @@
 					<span class="icon-bar"></span>
 				</a>
 				<a class="brand" href="#"><?php echo Yii::app()->name ?></a>
-				<div class="nav-collapse" id="mainmenu">
+				<div class="nav-collapse">
 					<?php $this->widget('zii.widgets.CMenu',array(
 						'htmlOptions' => array( 'class' => 'nav' ),
 						'activeCssClass'	=> 'active',
@@ -57,10 +57,10 @@
 							array('label'=>Yii::app()->getModule('user')->t("Login"), 'url'=>Yii::app()->getModule('user')->loginUrl, 'visible'=>Yii::app()->user->isGuest),
 							array('url'=>Yii::app()->getModule('user')->registrationUrl, 'label'=>Yii::app()->getModule('user')->t("Register"), 'visible'=>Yii::app()->user->isGuest),
 							array('url'=>Yii::app()->getModule('user')->profileUrl, 'label'=>Yii::app()->getModule('user')->t("Profile"), 'visible'=>!Yii::app()->user->isGuest),
-							array('label'=>'Admin','url'=>array('/'),'visible'=>Yii::app()->user->isAdmin(),
-							'items'=>array(
-								array('label'=>'Users', 'url'=>array('/user/admin')),
-							)),
+							array('url'=>array('/user'),'label'=>'Users', 'visible'=>Yii::app()->user->isAdmin()),
+							array('url'=>array('/stories'),'label'=>'Stories', 'visible'=>!Yii::app()->user->isGuest),
+							array('url'=>array('/messages'),'label'=>'Mesages', 'visible'=>!Yii::app()->user->isGuest),
+							array('url'=>array('/comments'),'label'=>'Comments', 'visible'=>Yii::app()->user->isAdmin()),
 							array('url'=>Yii::app()->getModule('user')->logoutUrl, 'label'=>Yii::app()->getModule('user')->t("Logout").' ('.Yii::app()->user->name.')', 'visible'=>!Yii::app()->user->isGuest),
 						),
 					)); ?>

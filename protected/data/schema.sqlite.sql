@@ -42,6 +42,15 @@ CREATE TABLE soc_profiles_fields (
 
 INSERT INTO soc_profiles_fields (id, varname, title, field_type, field_size, field_size_min, required, 'match', range, error_message, other_validator, 'default', widget, widgetparams, position, visible) VALUES (1, 'lastname', 'Last Name', 'VARCHAR', 50, 3, 1, '', '', 'Incorrect Last Name (length between 3 and 50 characters).', '', '', '', '', 1, 3);
 INSERT INTO soc_profiles_fields (id, varname, title, field_type, field_size, field_size_min, required, 'match', range, error_message, other_validator, 'default', widget, widgetparams, position, visible) VALUES (2, 'firstname', 'First Name', 'VARCHAR', 50, 3, 1, '', '', 'Incorrect First Name (length between 3 and 50 characters).', '', '', '', '', 0, 3);
+-- Following
+CREATE TABLE soc_following(
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	user_id INTEGER NOT NULL,
+	following INTEGER NOT NULL,
+	FOREIGN KEY(user_id) REFERENCES soc_users(id),
+	FOREIGN KEY(following) REFERENCES soc_users(id)
+);
+
 -- Stories/posts/whatever
 CREATE TABLE soc_stories(
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,

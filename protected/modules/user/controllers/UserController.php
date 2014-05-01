@@ -44,15 +44,15 @@ class UserController extends Controller
 			$this->redirect(Yii::app()->controller->module->loginUrl);
 		}
 		else {
-			if (Yii::app()->getModule('user')->isAdmin()) {
+			//if (Yii::app()->getModule('user')->isAdmin()) {
 				$model = $this->loadModel();
 				$this->render('view',array(
 					'model'=>$model,
 				));
-			}
-			else {
-				throw new CHttpException(403, "You are not authorized to perform that.");
-			}
+			//}
+			//else {
+			//	throw new CHttpException(403, "You are not authorized to perform that.");
+			//}
 		}
 	}
 
@@ -71,9 +71,21 @@ class UserController extends Controller
 			),
 		));
 
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+		if (Yii::app()->user->isGuest) {
+			//redirect to login if guest
+			$this->redirect(Yii::app()->controller->module->loginUrl);
+		}
+		else {
+			if (Yii::app()->getModule('user')->isAdmin()) {
+				$model = $this->loadModel();
+				$this->render('index',array(
+					'dataProvider'=>$dataProvider,
+				));
+			}
+			else {
+				throw new CHttpException(403, "You are not authorized to perform that.");
+			}
+		}
 	}
 
 	/**

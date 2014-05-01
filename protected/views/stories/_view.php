@@ -10,7 +10,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('author')); ?>:</b>
-	<?php echo CHtml::encode($data->author0->username); ?>
+	<?php echo CHtml::link(CHtml::encode($data->author0->username), array('user/user/view', 'id'=>$data->author0->id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('text')); ?>:</b>

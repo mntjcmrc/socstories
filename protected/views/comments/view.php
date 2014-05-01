@@ -8,19 +8,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Comments', 'url'=>array('index')),
-	array('label'=>'Create Comments', 'url'=>array('create')),
-	array('label'=>'Update Comments', 'url'=>array('update', 'id'=>$model->id)),
-	//array('label'=>'Delete Comments', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	//array('label'=>'Manage Comments', 'url'=>array('admin')),
+	array('label'=>'List Comments', 'url'=>array('index'), 'visible'=>!Yii::app()->user->isGuest),
+	array('label'=>'Create Comments', 'url'=>array('create'), 'visible'=>!Yii::app()->user->isGuest),
+	array('label'=>'Update Comments', 'url'=>array('update', 'id'=>$model->id), 'visible'=>!Yii::app()->user->isGuest),
+	array('label'=>'Delete Comments', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?'), 'visible'=>Yii::app()->user->isAdmin()),
+	array('label'=>'Manage Comments', 'url'=>array('admin'), 'visible'=>Yii::app()->user->isAdmin()),
 );
-$menu_admin = array(
-	array('label'=>'Delete Stories', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Stories', 'url'=>array('admin')),
-);
-if(Yii::app()->user->isAdmin()){
-	$this->menu = array_merge($this->menu, $menu_admin);
-}
 ?>
 
 <h1>View Comments #<?php echo $model->id; ?></h1>

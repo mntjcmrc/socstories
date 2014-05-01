@@ -9,17 +9,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Stories', 'url'=>array('index')),
-	array('label'=>'Create Stories', 'url'=>array('create')),
-	array('label'=>'View Stories', 'url'=>array('view', 'id'=>$model->id)),
-	//array('label'=>'Manage Stories', 'url'=>array('admin')),
+	array('label'=>'List Stories', 'url'=>array('index'), 'visible'=>!Yii::app()->user->isGuest),
+	array('label'=>'Create Stories', 'url'=>array('create'), 'visible'=>!Yii::app()->user->isGuest),
+	array('label'=>'View Stories', 'url'=>array('view', 'id'=>$model->id), 'visible'=>!Yii::app()->user->isGuest),
+	array('label'=>'Manage Stories', 'url'=>array('admin'), 'visible'=>Yii::app()->user->isAdmin()),
 );
-$menu_admin = array(
-	array('label'=>'Manage Stories', 'url'=>array('admin')),
-);
-if(Yii::app()->user->isAdmin()){
-	$this->menu = array_merge($this->menu, $menu_admin);
-}
 ?>
 
 <h1>Update Stories <?php echo $model->id; ?></h1>

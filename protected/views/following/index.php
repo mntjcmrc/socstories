@@ -7,8 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Following', 'url'=>array('create')),
-	array('label'=>'Manage Following', 'url'=>array('admin')),
+	array('label'=>'Create Following', 'url'=>array('create'), 'visible'=>!Yii::app()->user->isGuest),
+	array('label'=>'Manage Following', 'url'=>array('admin'), 'visible'=>Yii::app()->user->isAdmin()),
 );
 ?>
 

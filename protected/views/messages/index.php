@@ -7,15 +7,9 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Messages', 'url'=>array('create')),
-	//array('label'=>'Manage Messages', 'url'=>array('admin')),
+	array('label'=>'Create Messages', 'url'=>array('create'), 'visible'=>!Yii::app()->user->isGuest),
+	array('label'=>'Manage Messages', 'url'=>array('admin'), 'visible'=>Yii::app()->user->isAdmin()),
 );
-$menu_admin = array(
-	array('label'=>'Manage Stories', 'url'=>array('admin')),
-);
-if(Yii::app()->user->isAdmin()){
-	$this->menu = array_merge($this->menu, $menu_admin);
-}
 ?>
 
 <h1>Messages</h1>

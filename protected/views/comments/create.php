@@ -8,15 +8,9 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Comments', 'url'=>array('index')),
-	//array('label'=>'Manage Comments', 'url'=>array('admin')),
+	array('label'=>'List Comments', 'url'=>array('index'), 'visible'=>!Yii::app()->user->isGuest),
+	array('label'=>'Manage Comments', 'url'=>array('admin'), 'visible'=>Yii::app()->user->isAdmin()),
 );
-$menu_admin = array(
-	array('label'=>'Manage Stories', 'url'=>array('admin')),
-);
-if(Yii::app()->user->isAdmin()){
-	$this->menu = array_merge($this->menu, $menu_admin);
-}
 ?>
 
 <h1>Create Comments</h1>

@@ -9,17 +9,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Comments', 'url'=>array('index')),
-	array('label'=>'Create Comments', 'url'=>array('create')),
-	array('label'=>'View Comments', 'url'=>array('view', 'id'=>$model->id)),
-	//array('label'=>'Manage Comments', 'url'=>array('admin')),
+	array('label'=>'List Comments', 'url'=>array('index'), 'visible'=>!Yii::app()->user->isGuest),
+	array('label'=>'Create Comments', 'url'=>array('create'), 'visible'=>!Yii::app()->user->isGuest),
+	array('label'=>'View Comments', 'url'=>array('view', 'id'=>$model->id), 'visible'=>!Yii::app()->user->isGuest),
+	array('label'=>'Manage Comments', 'url'=>array('admin'), 'visible'=>Yii::app()->user->isAdmin()),
 );
-$menu_admin = array(
-	array('label'=>'Manage Stories', 'url'=>array('admin')),
-);
-if(Yii::app()->user->isAdmin()){
-	$this->menu = array_merge($this->menu, $menu_admin);
-}
 ?>
 
 <h1>Update Comments <?php echo $model->id; ?></h1>

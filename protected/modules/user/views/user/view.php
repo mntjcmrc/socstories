@@ -3,10 +3,13 @@ $this->breadcrumbs=array(
 	UserModule::t('Users')=>array('index'),
 	$model->username,
 );
-$this->layout='//layouts/column2';
+$this->layout='//layouts/column1';
 $this->menu=array(
-    array('label'=>UserModule::t('List User'), 'url'=>array('index')),
+    array('label'=>UserModule::t('List User'), 'url'=>array('/user'), 'visible'=>Yii::app()->user->isAdmin()),
 );
+if(Yii::app()->user->isAdmin()){
+	$this->layout='//layouts/column2';
+}
 ?>
 <h1><?php echo UserModule::t('View User').' "'.$model->username.'"'; ?></h1>
 <?php 

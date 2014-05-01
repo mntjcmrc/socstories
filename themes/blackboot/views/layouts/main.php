@@ -59,7 +59,7 @@
 							array('url'=>Yii::app()->getModule('user')->profileUrl, 'label'=>Yii::app()->getModule('user')->t("Profile"), 'visible'=>!Yii::app()->user->isGuest),
 							array('url'=>array('/user'),'label'=>'Users', 'visible'=>Yii::app()->user->isAdmin()),
 							array('url'=>array('/stories'),'label'=>'Stories', 'visible'=>!Yii::app()->user->isGuest),
-							array('url'=>array('/messages'),'label'=>'Mesages', 'visible'=>!Yii::app()->user->isGuest),
+							array('url'=>array('/messages'),'label'=>'Messages', 'visible'=>!Yii::app()->user->isGuest),
 							array('url'=>array('/comments'),'label'=>'Comments', 'visible'=>Yii::app()->user->isAdmin()),
 							array('url'=>Yii::app()->getModule('user')->logoutUrl, 'label'=>Yii::app()->getModule('user')->t("Logout").' ('.Yii::app()->user->name.')', 'visible'=>!Yii::app()->user->isGuest),
 						),

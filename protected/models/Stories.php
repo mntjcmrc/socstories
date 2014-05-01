@@ -6,6 +6,7 @@
  * The followings are the available columns in table '{{stories}}':
  * @property integer $id
  * @property integer $author
+ * @property string $title
  * @property string $text
  *
  * The followings are the available model relations:
@@ -30,11 +31,11 @@ class Stories extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('author, text', 'required'),
+			array('author, title, text', 'required'),
 			array('author', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, author, text', 'safe', 'on'=>'search'),
+			array('id, author, title, text', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,6 +60,7 @@ class Stories extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'author' => 'Author',
+			'title' => 'Title',
 			'text' => 'Text',
 			'comments' => 'Comments',
 		);
@@ -84,6 +86,7 @@ class Stories extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('author',$this->author);
+		$criteria->compare('title',$this->title,true);
 		$criteria->compare('text',$this->text,true);
 
 		return new CActiveDataProvider($this, array(

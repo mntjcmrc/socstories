@@ -16,12 +16,15 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Stories #<?php echo $model->id; ?></h1>
+<h1>View Story "<?php echo $model->title; ?>"</h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'author0.username',
+		array(
+			'label' => 'Author',
+			'value' => $model->author0->username,
+		),
 		'text',
 	),
 )); ?>
@@ -31,7 +34,10 @@ foreach (array_reverse($model->comments) as $comment){
 	$this->widget('zii.widgets.CDetailView', array(
 		'data'=>$comment,
 		'attributes'=>array(
-			'author0.username',
+			array(
+				'label' => 'Author',
+				'value' => $model->author0->username,
+			),
 			'text',
 		),
 	));

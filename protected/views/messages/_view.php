@@ -17,6 +17,10 @@
 	<?php echo CHtml::encode($data->recipient); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('subject')); ?>:</b>
+	<?php echo CHtml::encode($data->subject); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('text')); ?>:</b>
 	<?php echo CHtml::encode($data->text); ?>
 	<br />

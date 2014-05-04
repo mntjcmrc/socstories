@@ -73,6 +73,7 @@ CREATE TABLE soc_messages(
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	author INTEGER NOT NULL,
 	recipient INTEGER NOT NULL,
+	subject varchar(50) NOT NULL,
 	text TEXT NOT NULL,
 	FOREIGN KEY(author) REFERENCES soc_users(id),
 	FOREIGN KEY(recipient) REFERENCES soc_users(id)

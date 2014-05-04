@@ -24,6 +24,7 @@ $this->menu=array(
 		'id',
 		'author',
 		'recipient',
+		'subject',
 		'text',
 	),
 )); ?>

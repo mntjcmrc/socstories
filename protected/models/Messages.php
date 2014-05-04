@@ -7,6 +7,7 @@
  * @property integer $id
  * @property integer $author
  * @property integer $recipient
+ * @property string $subject
  * @property string $text
  *
  * The followings are the available model relations:
@@ -31,11 +32,11 @@ class Messages extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('author, recipient, text', 'required'),
+			array('author, recipient, subject, text', 'required'),
 			array('author, recipient', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, author, recipient, text', 'safe', 'on'=>'search'),
+			array('id, author, recipient, subject, text', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,6 +62,7 @@ class Messages extends CActiveRecord
 			'id' => 'ID',
 			'author' => 'Author',
 			'recipient' => 'Recipient',
+			'subject' => 'Subject',
 			'text' => 'Text',
 		);
 	}
@@ -86,6 +88,7 @@ class Messages extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('author',$this->author);
 		$criteria->compare('recipient',$this->recipient);
+		$criteria->compare('subject',$this->subject,true);
 		$criteria->compare('text',$this->text,true);
 
 		return new CActiveDataProvider($this, array(

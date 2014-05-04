@@ -78,9 +78,11 @@ class User extends CActiveRecord
 	public function relations()
 	{
         $relations = Yii::app()->getModule('user')->relations;
-        if (!isset($relations['profile']))
-            $relations['profile'] = array(self::HAS_ONE, 'Profile', 'user_id');
-		$relations['following'] = array(self::HAS_MANY, 'Following', 'user_id');
+        if (!isset($relations['profile'])){
+			$relations['profile'] = array(self::HAS_ONE, 'Profile', 'user_id');
+			$relations['following'] = array(self::HAS_MANY, 'Following', 'user_id');
+			$relations['messages'] = array(self::HAS_MANY, 'Messages', 'author');
+		}
         return $relations;
 	}
 

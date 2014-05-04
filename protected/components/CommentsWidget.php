@@ -9,6 +9,8 @@ class CommentsWidget extends CWidget {
 		$model = new Comments();
 		if(isset($_POST['Comments'])) {
 			$model->attributes = $_POST['Comments'];
+			$this->storyID = substr(Yii::app()->getRequest()->getUrl(),-1);
+			$model->setAttribute('story', $this->storyID);
 			if(!Yii::app()->user->isAdmin()){
 				$model->setAttribute('author', Yii::app()->user->getId());
 			}

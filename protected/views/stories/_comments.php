@@ -17,7 +17,6 @@ $form=$this->beginWidget('CActiveForm', array(
 	'action' => '#',
 )); ?>
 
-	<?php echo CHtml::hiddenField('Comments[story]', $storyID); ?>
 	<?php echo $form->errorSummary($model); ?>
 	<?php if(Yii::app()->user->isAdmin()){ ?>
 	<div class="row">

@@ -36,7 +36,7 @@ foreach (array_reverse($model->comments) as $comment){
 		'attributes'=>array(
 			array(
 				'label' => 'Author',
-				'value' => $model->author0->username,
+				'value' => $comment->author0->username,
 			),
 			'text',
 		),

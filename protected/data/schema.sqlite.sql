@@ -55,7 +55,7 @@ CREATE TABLE soc_following(
 CREATE TABLE soc_stories(
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	author INTEGER NOT NULL,
-	title TEXT NOT NULL,
+	title varchar(50) NOT NULL,
 	text TEXT NOT NULL,
 	FOREIGN KEY(author) REFERENCES soc_users(id)
 );

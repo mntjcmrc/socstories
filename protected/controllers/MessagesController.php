@@ -130,11 +130,7 @@ class MessagesController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Messages'/*, array(
-			'criteria'=>array(
-				'condition'=>'author='+Yii::app()->user->getId()+' OR recipient = '+Yii::app()->user->getId(),
-			)
-		)*/);
+		$dataProvider=new CActiveDataProvider('Messages');
 		
 		$dataProvider=Messages::model()->search('author','recipient');
 		$this->render('index',array(

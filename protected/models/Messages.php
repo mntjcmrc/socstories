@@ -60,8 +60,8 @@ class Messages extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'author' => 'Author',
-			'recipient' => 'Recipient',
+			'author' => 'From',
+			'recipient' => 'To',
 			'subject' => 'Subject',
 			'text' => 'Text',
 		);
@@ -90,6 +90,12 @@ class Messages extends CActiveRecord
 		$criteria->compare('recipient',$this->recipient);
 		$criteria->compare('subject',$this->subject,true);
 		$criteria->compare('text',$this->text,true);
+		
+		if(!Yii::app()->user->isAdmin())
+		{
+			$criteria->compare('author',Yii::app()->user->getId(),true,'OR');
+			$criteria->compare('recipient',Yii::app()->user->getId(),true,'OR');
+		}
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

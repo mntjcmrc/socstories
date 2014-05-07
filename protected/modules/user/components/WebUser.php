@@ -65,5 +65,8 @@ class WebUser extends CWebUser
     public function isAdmin() {
         return Yii::app()->getModule('user')->isAdmin();
     }
-
+	
+	public function isOwner($contentAuthorId) {
+		return Yii::app()->getModule('user')->isOwner($contentAuthorId);
+	}
 }

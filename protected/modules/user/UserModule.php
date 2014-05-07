@@ -261,4 +261,24 @@ class UserModule extends CWebModule
 	public function users() {
 		return User;
 	}
+	
+	/**
+	 * Return if user owns the content
+	 * @param content author Id
+	 * @return boolean	
+	 */
+	
+	public function isOwner($contentAuthorId) {
+		if(Yii::app()->user->isGuest)
+			return false;
+		else {
+			if(Yii::app()->user->id == $contentAuthorId)
+				return true;
+			else return false;
+		}
+	}
+	
+	
+	
+	
 }

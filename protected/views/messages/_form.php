@@ -18,13 +18,6 @@
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-	<?php if(Yii::app()->user->isAdmin()){ ?>
-	<div class="row">
-		<?php echo $form->labelEx($model,'author'); ?>
-		<?php echo $form->dropDownList($model, 'author', CHtml::listData(User::model()->findAll(), 'id', 'username')); ?>
-		<?php echo $form->error($model,'author'); ?>
-	</div>
-	<?php }?>
 	<div class="row">
 		<?php echo $form->labelEx($model,'recipient'); ?>
 		<?php echo $form->dropDownList($model, 'recipient', CHtml::listData(User::model()->findAll(), 'id', 'username')); ?>

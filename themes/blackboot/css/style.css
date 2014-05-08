@@ -15,7 +15,7 @@ body {
 div.cont {
 	background:url(../img/tiny_grid.png) repeat 0 0;
 	height:100%;
-	min-height:500px;
+	min-height:599px;
 	padding-top:30px;
 	padding-bottom:30px;
  }
@@ -132,8 +132,12 @@ label {
 }
 
 div.row {
-margin-right: -15px;
-margin-left: -15px;	
+margin-right: 0px;
+margin-left: 0px;	
+}
+
+div.row > * {
+	margin-right: 10px;
 }
 
 form input,select,textarea { float:left; }
@@ -152,9 +156,16 @@ div.errorMessage {
           border-radius: 4px;
 }
 
+div.rememberMe label{
+  width:200px;
+  text-align: left;
+  margin-left: 0.5em;
+ 
+}
+
 input[type="button"],
 input[type="submit"]{
-  margin-left:140px; 
+  margin-left:150px; 
   color: #ffffff;
   background-color: #000;
   display: inline-block;
@@ -265,7 +276,7 @@ input[type="color"]:focus,
 }
 input[type="radio"],
 input[type="checkbox"] {
-  margin: 3px 0;
+  margin: 7px 0;
   *margin-top: 0;
   /* IE7 */
 
@@ -491,8 +502,6 @@ table.items tr{
           border-radius: 4px;
 }
 
-div.rememberMe { display:block; margin-left:60px;}
-
 p.hint { float:left; display:block;}
 
 .extra {
@@ -503,10 +512,16 @@ p.hint { float:left; display:block;}
   background: #1A1A1A;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  text-align: center;
+}
+
+.extra .container .row div{
+	float: left;
+	margin: 0 auto;
+	width: 25%;
 }
 
 .extra ul {
-  width:300px;	
 }
 
 .extra a {
@@ -549,10 +564,8 @@ p.hint { float:left; display:block;}
   text-decoration: none;
 }
 
-.col-md-3 { float: left; }
-
 /*------------------------*/
 
-#comments-form > div.row > textarea#Comments_text {
+/*#comments-form > div.row > textarea#Comments_text {
 	margin-left: 16px;
-}
+}*/

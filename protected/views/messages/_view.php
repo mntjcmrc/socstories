@@ -24,5 +24,7 @@
 	
 	<?php echo CHtml::link(CHtml::encode('View'), array('view', 'id'=>$data->id)); ?>
 	<br />
+	
+	<hr></hr>
 
 </div>

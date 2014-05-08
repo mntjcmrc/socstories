@@ -63,7 +63,7 @@ class Messages extends CActiveRecord
 			'author' => 'From',
 			'recipient' => 'To',
 			'subject' => 'Subject',
-			'text' => 'Text',
+			'text' => 'Message',
 		);
 	}
 

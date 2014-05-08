@@ -20,6 +20,8 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('text')); ?>:</b>
 	<?php echo CHtml::encode($data->text); ?>
 	<br />
+	
+	<hr></hr>
 
 
 </div>

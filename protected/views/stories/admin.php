@@ -44,10 +44,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'id'=>'stories-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
-	'columns'=>array(
-		'id',
-		'author',
+	'columns'=>array(	
 		'title',
+		array(
+			'name' => 'author',
+			'value' => '$data->author0->username',
+		),
 		'text',
 		array(
 			'class'=>'CButtonColumn',

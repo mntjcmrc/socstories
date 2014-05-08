@@ -13,9 +13,6 @@
 	<?php echo CHtml::link(CHtml::encode($data->author0->username), array('user/user/view', 'id'=>$data->author0->id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('text')); ?>:</b>
-	<?php echo CHtml::encode($data->text); ?>
-	<br />
 	<b><?php echo CHtml::encode($data->getAttributeLabel('comments')); ?>:</b>
 	<?php echo count($data->comments); ?>
 <hr>

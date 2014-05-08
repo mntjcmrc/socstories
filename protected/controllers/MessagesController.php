@@ -32,14 +32,15 @@ class MessagesController extends Controller
 				'users'=>array('*'),
 			),*/
 			array('allow', // allow authenticated user to perform 'index', 'view', 'create', 'update' and 'delete' actions
-				'actions'=>array('index','view','create','update','delete'),
+				'actions'=>array('index','view','create','delete'),
 				'users'=>array('@'),
 			),
-			//array('allow', // allow admin user to perform 'admin' and 'delete' actions
-			//	'actions'=>array('admin'),
-			//	'users'=>array('admin'),
-			//),
+			/*array('allow', // allow admin user to perform 'admin' and 'delete' actions
+				'actions'=>array('admin'),
+				'users'=>array('admin'),
+			),*/
 			array('deny',  // deny all users
+				'actions'=>array('update', 'admin'),
 				'users'=>array('*'),
 			),
 		);
@@ -85,7 +86,7 @@ class MessagesController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	/*public function actionUpdate($id)
+	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
 
@@ -106,7 +107,7 @@ class MessagesController extends Controller
 		$this->render('update',array(
 			'model'=>$model,
 		));
-	}*/
+	}
 
 	/**
 	 * Deletes a particular model.
@@ -141,7 +142,7 @@ class MessagesController extends Controller
 	/**
 	 * Manages all models.
 	 */
-	/*public function actionAdmin()
+	public function actionAdmin()
 	{
 		$model=new Messages('search');
 		$model->unsetAttributes();  // clear any default values
@@ -151,7 +152,7 @@ class MessagesController extends Controller
 		$this->render('admin',array(
 			'model'=>$model,
 		));
-	}*/
+	}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

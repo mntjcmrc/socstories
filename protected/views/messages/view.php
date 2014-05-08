@@ -20,9 +20,14 @@ $this->menu=array(
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		//'id',
-		'author',
-		'recipient',
+		array(
+			'label' => 'From',
+			'value' => $model->author0->username,
+		),
+		array(
+			'label' => 'To',
+			'value' => $model->recipient0->username,
+		),
 		'subject',
 		'text',
 	),

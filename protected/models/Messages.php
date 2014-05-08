@@ -91,11 +91,9 @@ class Messages extends CActiveRecord
 		$criteria->compare('subject',$this->subject,true);
 		$criteria->compare('text',$this->text,true);
 		
-		if(!Yii::app()->user->isAdmin())
-		{
-			$criteria->compare('author',Yii::app()->user->getId(),true,'OR');
-			$criteria->compare('recipient',Yii::app()->user->getId(),true,'OR');
-		}
+		// Search for Messages whose author or recipient is the logged user
+		$criteria->compare('author',Yii::app()->user->getId(),true,'OR');
+		$criteria->compare('recipient',Yii::app()->user->getId(),true,'OR');
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

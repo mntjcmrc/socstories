@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Create Messages', 'url'=>array('create'), 'visible'=>!Yii::app()->user->isGuest),
-	array('label'=>'Manage Messages', 'url'=>array('admin'), 'visible'=>Yii::app()->user->isAdmin()),
+	
 );
 ?>
 

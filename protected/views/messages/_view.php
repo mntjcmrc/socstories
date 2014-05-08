@@ -5,11 +5,9 @@
 
 <div class="view">
 
-	<?php	
-	//if ( $data->author == Yii::app()->user->getId())
-	//{
-		$sender = Yii::app()->getModule('user')->user($data->author);
-		$receiver = Yii::app()->getModule('user')->user($data->recipient);
+	<?php
+	$sender = Yii::app()->getModule('user')->user($data->author);
+	$receiver = Yii::app()->getModule('user')->user($data->recipient);
 	?>
 	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('subject')); ?>:</b>
@@ -26,10 +24,5 @@
 	
 	<?php echo CHtml::link(CHtml::encode('View'), array('view', 'id'=>$data->id)); ?>
 	<br />
-	
-	<?php
-	//}
-	?>
-
 
 </div>

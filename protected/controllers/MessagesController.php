@@ -31,14 +31,14 @@ class MessagesController extends Controller
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),*/
-			array('allow', // allow authenticated user to perform 'index', 'view', 'create' and 'update' actions
-				'actions'=>array('index','view','create','update'),
+			array('allow', // allow authenticated user to perform 'index', 'view', 'create', 'update' and 'delete' actions
+				'actions'=>array('index','view','create','update','delete'),
 				'users'=>array('@'),
 			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
-			),
+			//array('allow', // allow admin user to perform 'admin' and 'delete' actions
+			//	'actions'=>array('admin'),
+			//	'users'=>array('admin'),
+			//),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
@@ -70,10 +70,7 @@ class MessagesController extends Controller
 		if(isset($_POST['Messages']))
 		{
 			$model->attributes=$_POST['Messages'];
-			// Only admins can create messages with a different author to themselves
-			if(!Yii::app()->user->isAdmin()){
-				$model->setAttribute('author', Yii::app()->user->getId());
-			}
+			$model->setAttribute('author', Yii::app()->user->getId());
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -88,7 +85,7 @@ class MessagesController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate($id)
+	/*public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
 
@@ -109,7 +106,7 @@ class MessagesController extends Controller
 		$this->render('update',array(
 			'model'=>$model,
 		));
-	}
+	}*/
 
 	/**
 	 * Deletes a particular model.
@@ -118,11 +115,13 @@ class MessagesController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
-
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		$message = $this->loadModel($id);
+	
+		if(Yii::app()->user->isOwner($message->author))
+		{
+			$this->loadModel($id)->delete();
+		}
+		$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
 	}
 
 	/**
@@ -142,7 +141,7 @@ class MessagesController extends Controller
 	/**
 	 * Manages all models.
 	 */
-	public function actionAdmin()
+	/*public function actionAdmin()
 	{
 		$model=new Messages('search');
 		$model->unsetAttributes();  // clear any default values
@@ -152,7 +151,7 @@ class MessagesController extends Controller
 		$this->render('admin',array(
 			'model'=>$model,
 		));
-	}
+	}*/
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

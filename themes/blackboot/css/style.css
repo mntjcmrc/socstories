@@ -160,8 +160,26 @@ div.rememberMe label{
   width:200px;
   text-align: left;
   margin-left: 0.5em;
- 
 }
+
+div.comments-wall{
+	border: 1px solid #BBB;
+	background-color: #2e2e2e;
+	padding: 20px 10px 0px 10px;
+	-webkit-box-shadow: 0 0 10px 2px #BBB;
+box-shadow: 0 0 10px 2px #BBB;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+}
+
+div.comments-wall .detail-view{
+border: none;
+-webkit-box-shadow:inset 0 0 10px 2px #BBB;
+box-shadow:inset 0 0 10px 2px #BBB;
+}
+
+
 
 input[type="button"],
 input[type="submit"]{

@@ -29,8 +29,10 @@ $this->menu=array(
 	),
 )); ?>
 <h2>Comments</h2>
-<?php
 
+<div class="comments-wall">
+
+<?php
 foreach (array_reverse($model->comments) as $comment){
 	$this->widget('zii.widgets.CDetailView', array(
 		'data'=>$comment,
@@ -46,6 +48,9 @@ foreach (array_reverse($model->comments) as $comment){
 	<br />
 	<?php
 }
+?>
+</div>
+<?php
 $this->widget('CommentsWidget', array(
 	'storyID' => $model->id,
 ));

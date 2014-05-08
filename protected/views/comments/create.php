@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Comments', 'url'=>array('index'), 'visible'=>!Yii::app()->user->isGuest),
+	array('label'=>'List Comments', 'url'=>array('index'), 'visible'=>Yii::app()->user->isAdmin()),
 	array('label'=>'Manage Comments', 'url'=>array('admin'), 'visible'=>Yii::app()->user->isAdmin()),
 );
 ?>

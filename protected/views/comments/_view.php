@@ -5,20 +5,19 @@
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('author')); ?>:</b>
-	<?php echo CHtml::encode($data->author); ?>
+	<?php echo CHtml::encode($data->author0->username); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('story')); ?>:</b>
-	<?php echo CHtml::encode($data->story); ?>
+	<?php echo CHtml::encode($data->story0->title); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('text')); ?>:</b>
 	<?php echo CHtml::encode($data->text); ?>
+	<br />
+	
+	<?php echo CHtml::link(CHtml::encode('View'), array('view', 'id'=>$data->id)); ?>
 	<br />
 	
 	<hr></hr>

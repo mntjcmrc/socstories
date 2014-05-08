@@ -61,7 +61,7 @@ class Comments extends CActiveRecord
 			'id' => 'ID',
 			'author' => 'Author',
 			'story' => 'Story',
-			'text' => 'Text',
+			'text' => 'Comment',
 		);
 	}
 

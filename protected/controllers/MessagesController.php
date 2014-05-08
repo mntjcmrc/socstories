@@ -39,8 +39,11 @@ class MessagesController extends Controller
 				'actions'=>array('admin'),
 				'users'=>array('admin'),
 			),*/
-			array('deny',  // deny all users
+			array('deny',  // deny 'update' and 'admin' to all users
 				'actions'=>array('update', 'admin'),
+				'users'=>array('*'),
+			),
+			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
 		);

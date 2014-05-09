@@ -11,9 +11,7 @@ class CommentsWidget extends CWidget {
 			$model->attributes = $_POST['Comments'];
 			$this->storyID = substr(Yii::app()->getRequest()->getUrl(),-1);
 			$model->setAttribute('story', $this->storyID);
-			if(!Yii::app()->user->isAdmin()){
-				$model->setAttribute('author', Yii::app()->user->getId());
-			}
+			$model->setAttribute('author', Yii::app()->user->getId());
 			if($model->save())
 				$this->controller->redirect(array('view','id'=>$this->storyID));
 		}

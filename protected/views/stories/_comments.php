@@ -18,12 +18,6 @@ $form=$this->beginWidget('CActiveForm', array(
 )); ?>
 
 	<?php echo $form->errorSummary($model); ?>
-	<?php if(Yii::app()->user->isAdmin()){ ?>
-	<div class="row">
-		<?php echo $form->dropDownList($model, 'author', CHtml::listData(User::model()->findAll(), 'id', 'username')); ?>
-		<?php echo $form->error($model,'author'); ?>
-	</div>
-	<?php }?>
 	<div class="row">
 		<?php echo $form->textArea($model,'text',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'text'); ?>

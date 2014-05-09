@@ -9,14 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Comments', 'url'=>array('index'), 'visible'=>!Yii::app()->user->isGuest),
-	array('label'=>'Create Comments', 'url'=>array('create'), 'visible'=>!Yii::app()->user->isGuest),
-	array('label'=>'View Comments', 'url'=>array('view', 'id'=>$model->id), 'visible'=>!Yii::app()->user->isGuest),
+	array('label'=>'List Comments', 'url'=>array('index'), 'visible'=>Yii::app()->user->isAdmin()),
+	array('label'=>'View Comments', 'url'=>array('view', 'id'=>$model->id), 'visible'=>Yii::app()->user->isAdmin()),
 	array('label'=>'Manage Comments', 'url'=>array('admin'), 'visible'=>Yii::app()->user->isAdmin()),
 );
 ?>
 
-<h1>Update Comments <?php echo $model->id; ?></h1>
+<h1>Update Comments from <?php echo $model->author0->username; ?> on story <?php echo $model->story0->title; ?></h1>
 
 <?php 
 $render = false;

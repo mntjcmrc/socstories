@@ -520,6 +520,32 @@ table.items tr{
           border-radius: 4px;
 }
 
+table.dataGrid {
+	background-color: #2E2E2E;
+	-webkit-box-shadow:inset 0 0 1px 1px #FFF;
+	box-shadow:inset 0 0 1px 1px #FFF;
+}
+
+table.dataGrid th{
+	background-color: transparent;
+	display: block;
+	padding-top: 7px;
+	padding-right: 5px;
+	font-size: 13px;
+	border-radius: 0;
+	width: 150px;
+	height: 20px;
+	text-align: right;
+	border-right: #BBB solid 1px;
+}
+table.dataGrid td{
+	color: white;
+	text-align: left;
+	width: 250px;
+	padding-left: 5px;
+}
+
+
 p.hint { float:left; display:block;}
 
 .extra {

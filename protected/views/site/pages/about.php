@@ -8,5 +8,6 @@ $this->breadcrumbs=array(
 ?>
 <h1>About</h1>
 
-<p>This is a "static" page. You may change the content of this page
-by updating the file <code><?php echo __FILE__; ?></code>.</p>
+<p>This, and the rest of pages are a draft of the application, not everything is working, but a lot of is.</p><br/>
+
+<p>This web runs on a Yii application. Made by Ivan Montejo and Pablo Amilburu.</p>

@@ -393,6 +393,7 @@ class ProfileFieldController extends Controller
 	 */
 	public function actionDelete()
 	{
+		/*
 		if(Yii::app()->request->isPostRequest)
 		{
 			// we only allow deletion via POST request
@@ -456,6 +457,7 @@ class ProfileFieldController extends Controller
 		}
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+		*/
 	}
 
 	/**

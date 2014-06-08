@@ -9,8 +9,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Comments', 'url'=>array('index'), 'visible'=>Yii::app()->user->isAdmin()),
-	array('label'=>'View Comments', 'url'=>array('view', 'id'=>$model->id), 'visible'=>Yii::app()->user->isAdmin()),
+	array('label'=>'List Comments', 'url'=>array('index'), 'visible'=>!Yii::app()->user->isGuest),
+	array('label'=>'View Comments', 'url'=>array('view', 'id'=>$model->id), 'visible'=>!Yii::app()->user->isGuest),
 	array('label'=>'Manage Comments', 'url'=>array('admin'), 'visible'=>Yii::app()->user->isAdmin()),
 );
 ?>
